@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Trabalho Fundamentos de Web - semestre 2020/2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="estilogame.css">
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <div class="header" style="margin-bottom: 0">
+    <h1>Fundamentos de Web</h1>
+    <p>Nossa primeira página utilizando CSS com vinculação externa e Bootstrap - agora em HTML5!</p>
+  </div>
+
+  <div class="container.fluid">
+    <div class="icon-bar">
+      <a href="index.html"><i class="fa fa-home fa-2x"></i>
+        <p class="mytip">Início</p>
+      </a>
+      <a href="cadastro.html"><i class="fa fa-address-card fa-2x"></i>
+        <p class="mytip">Cadastro</p>
+      </a>
+      <a href="game.html"><i class="fa fa-gamepad fa-2x"></i>
+        <p class="mytip">Jogo da Memória</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <section>
+      <h2>Como jogar ?</h2>
+      <div class="flip-box">
+        <div class="flip-box-inner">
+          <div class="flip-box-front">
+            <img id="rules" src="Imagens/regras.png">
+          </div>
+          <div class="flip-box-back">
+            <p>
+              São 12 peças... Será que você consegue encontrar os 6 pares no menor tempo possível?
+            </p>
+            <p>
+              Cada peça representa uma operação matemática e a sua correspondência é o resultado desta operação;
+            </p>
+            <p>
+              Os pares que você acertar permanecerão abertos no tabuleiro;
+            </p>
+            <p>
+              Para iniciar a partida é só clicar no botão Iniciar, que ativará o contador de movimentos e o
+              cronômetro;
+            </p>
+            <p>
+              Você pode reiniciar o jogo a qualquer momento... Mas não se esqueça de clicar no botão iniciar para
+              marcar
+              sua
+              pontuação!
+            </p>
+            <p>
+              Aproveite essa experiência <span>eletrizante</span>!!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <a href="memoryGame.html" class="btn-link">Jogar</a>
+    </section>
+  </div>
+</body>
+
+<div class="footer">
+  <p><b>Bruno Chiot de Oliveira 126910@upf.br - Cristian Guilherme Petry 133057@upf.br - Kétlin Petry Beppler
+      126923@upf.br</b></p>
+</div>
+
+</html>

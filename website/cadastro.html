@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Trabalho Fundamentos de Web - semestre 2020/2</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="estilocadastro.css">
+
+  <!-- Scripts -->
+  <script src="jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="jquery.mask.js"></script>
+  <script src="https://unpkg.com/imask"></script>
+
+</head>
+
+<body>
+
+  <div class="header">
+    <h1>Fundamentos de Web</h1>
+    <p>Nossa primeira página utilizando CSS com vinculação externa e Bootstrap - agora em HTML5!</p>
+  </div>
+
+  <div class="container.fluid">
+    <div class="icon-bar">
+      <a href="index.html"><i class="fa fa-home fa-2x"></i>
+        <p class="mytip">Início</p>
+      </a>
+      <a href="cadastro.html"><i class="fa fa-address-card fa-2x"></i>
+        <p class="mytip">Cadastro</p>
+      </a>
+      <a href="game.html"><i class="fa fa-gamepad fa-2x"></i>
+        <p class="mytip">Jogo da Memória</p>
+      </a>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <h2>Cadastro</h2>
+    <form id="formulario" method="get" action="#">
+
+      <div id="erroNome"></div>
+      <label for="nome"><b>Nome Completo</b></label>
+      <input type="text" placeholder="Insira o nome" name="nome" id="nome">
+
+
+      <label for="tel"><b>Telefone</b></label>
+      <input type="text" name="telefone" id="telefone" placeholder="(xx) xxxx-xxxx">
+
+      <div id="erroEmail"></div>
+      <label for="email"><b>E-mail</b></label>
+      <div class="inputBox">
+        <input type="text" placeholder="exemplo@exemplo.com.br" name="email" id="meu-email" onkeydown="validation()">
+        <div id="text"></div>
+      </div>
+
+
+      <label for="data"><b>Data de nascimento</b></label>
+      <input type="text" name="data" id="data" placeholder="xx/xx/xxxx">
+
+      <input id="verifica" type="button" class="btn btn-success" value="Enviar">
+
+    </form><br />
+
+    <div id="success" role="alert"><span class="closebtn"></span><strong>Salvo com Sucesso!</strong></div>
+
+    <div id="alert" role="alert"><span class="closebtn"></span><strong>Erro!</strong><img src="#" id="browserImg" />
+    </div>
+
+  </div>
+
+  <script src="cadastro.js"></script>
+
+  <script>
+
+    $(document).ready(function () {
+      $('#telefone').mask('(00) 0000-0000');
+    });
+
+    var momentFormat = 'DD/MM/YYYY'
+
+    var dateMask = IMask(
+      document.getElementById('data'),
+      {
+        mask: Date,
+        pattern: momentFormat,
+        lazy: true,
+        min: new Date(1, 0, 1909),
+        max: new Date(1, 0, 2020),
+
+        format: function (date) {
+          return moment(date).format(momentFormat);
+        },
+        parse: function (str) {
+          return moment(str, momentFormat);
+        },
+
+        blocks: {
+          DD: {
+            mask: IMask.MaskedRange,
+            from: 1,
+            to: 31
+          },
+
+          MM: {
+            mask: IMask.MaskedRange,
+            from: 1,
+            to: 12
+          },
+
+          YYYY: {
+            mask: IMask.MaskedRange,
+            from: 1909,
+            to: 2020
+          }
+        }
+      });
+
+    function validation() {
+      var form = document.getElementById('formulario');
+      var email = document.getElementById('meu-email').value;
+      var text = document.getElementById('text');
+
+      var pattern = /[a-z0-9]+[_a-z0-9\.-]*[a-z0-9]+@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{1,4})/;
+
+      if (email.match(pattern)) {
+        form.classList.add('valid');
+        form.classList.remove('invalid');
+        text.innerHTML = "Seu e-mail é válido";
+        text.style.color = "#1109e8";
+
+      } else {
+        form.classList.remove('valid');
+        form.classList.add('invalid');
+        text.innerHTML = "Insira um e-mail válido";
+        text.style.color = "#FF0000";
+      }
+
+      if (email == "") {
+        form.classList.remove('valid');
+        form.classList.remove('invalid');
+        text.innerHTML = '';
+      }
+    }
+
+  </script>
+
+</body>
+
+<div class="footer">
+  <p><b>Bruno Chiot de Oliveira 126910@upf.br - Cristian Guilherme Petry 133057@upf.br - Kétlin Petry Beppler
+      126923@upf.br</b></p>
+</div>
+
+</html>

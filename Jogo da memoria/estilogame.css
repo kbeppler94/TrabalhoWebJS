@@ -1,0 +1,166 @@
+html,
+body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: url(Imagens/back.jpeg);
+}
+
+.header {
+    background-color: rgb(213, 253, 213);
+    text-align: center;
+    position: relative;
+    padding-top: 1%;
+}
+
+.icon-bar {
+    width: 100%;
+    background-color: #4CAF50;
+    overflow: auto;
+}
+
+.icon-bar a {
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    padding-top: 10px;
+    transition: all 0.5s ease;
+    color: black;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.icon-bar a:hover {
+    background-color: lightblue;
+}
+
+.container {
+    flex: 1 0 auto;
+    width: 50%;
+    margin-top: 35px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+section h2 {
+    color: orange;
+    padding-bottom: 6%;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+h2:hover {
+    color: lightsteelblue;
+    text-shadow: 2px 2px orange;
+}
+
+.flip-box {
+    background-color: transparent;
+    align-items: center;
+    margin: auto;
+    width: 600px;
+    height: 350px;
+    perspective: 1000px;
+}
+
+.flip-box p {
+    text-decoration: solid;
+    font-size: 15px;
+    padding-top: 5px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+.flip-box-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.9s;
+    transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-box-front,
+.flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-box-front {
+    background-color: rgba(255, 255, 224, 0.699);
+    border: 1px solid orange;
+    color: black;
+}
+
+#rules {
+    padding-top: 35px;
+    position: relative;
+    width: 450px;
+}
+
+
+.flip-box-back {
+    background-color: rgb(255, 255, 224);
+    border: 1px solid orange;
+    width: 600px;
+    color: black;
+    transform: rotateY(180deg);
+}
+
+.btn-link {
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: orange;
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    left: 46.5%;
+    bottom: -9%;
+}
+
+.btn-link:hover {
+    transform: scale(1.2);
+    background-color: lightgrey;
+    text-decoration: none;
+    color: black;
+    opacity: 0.8;
+}
+
+button {
+    font-family: 'Balsamiq Sans', 'Helvetica', 'Arial', sans-serif;
+    background: #e3e764;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    padding-top: 10px;
+    transition: 1s ease;
+}
+
+span:hover {
+    color: red;
+}
+
+.footer {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(213, 253, 213, 0.527);
+    color: black;
+}

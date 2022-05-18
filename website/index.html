@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Trabalho Fundamentos de Web - semestre 2020/2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="meusestilos.css">
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <div class="header" style="margin-bottom: 0">
+    <h1>Fundamentos de Web</h1>
+    <p>Nossa primeira página utilizando CSS com vinculação externa e Bootstrap - agora em HTML5!</p>
+  </div>
+
+  <div class="container.fluid">
+    <div class="icon-bar">
+      <a href="index.html"><i class="fa fa-home fa-2x"></i>
+        <p class="mytip">Início</p>
+      </a>
+      <a href="cadastro.html"><i class="fa fa-address-card fa-2x"></i>
+        <p class="mytip">Cadastro</p>
+      </a>
+      <a href="game.html"><i class="fa fa-gamepad fa-2x"></i>
+        <p class="mytip">Jogo da Memória</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="container" style="margin-top: 1%">
+    <h2>Cadastro</h2>
+    <p style="font-weight: bold">Cadastro de usuários - Informe seu nome, telefone, e-mail e data de nascimento.</p>
+    <p>Preencha os campos solicitados no formulário para envio dos seus dados cadastrais. Para que seus dados sejam
+      salvos, não esqueça de preencher o campo e-mail com um domínio UPF! Fique
+      atento: os campos nome e e-mail são de preenchimento obrigatório.
+    </p>
+  </div>
+
+  <div class="container" style="margin-top: 1%">
+    <h2>Game</h2>
+    <p style="font-weight: bold">Jogo de memória utilizando matemática!</p>
+    <p>Jogue uma partida rápida para testar sua memória e sua capacidade de calcular rapidamente. Desafio eletrizante
+      para todas as idades! Leve sua mente ao limite!
+      Lembre-se: há somente um par correspondente de cada operação.
+    </p>
+  </div>
+
+  <div class="container" style="margin-top: 1%">
+    <h2>Primos Petry & Chiot LTDA</h2>
+    <p style="font-weight: bold">Empresa pioneira em desenvolvimento de websites e soluções para Internet na região
+      norte do Estado do Rio Grande do Sul.</p>
+    <p>Com mais de 20 anos de sucesso e muita parceria, desenvolvendo soluções para seus cliente e criando fãs de seu
+      trabalho, nosso comprometimento com o cliente é unico, sem igual.
+      Nunca houve na história das empresas de tecnologia uma empresa mais comprometida com seus clientes que a Primos
+      Petry &
+      Chiot LTDA na criação de soluções inteligentes e desenvolvimento web.
+      Segundo avaliações dos nossos clientes, somos líderes no mercado nacional, e como diz o ditado: "Se tá na
+      Internet, é verdade!"
+    </p>
+  </div>
+
+  <script>
+
+    var paragrafos = $(".container");
+    window.onload = function () {
+      for (var i = 0; i < paragrafos.length; i++) {
+        var target = Math.floor(Math.random() * paragrafos.length - 1) + 1;
+        var target2 = Math.floor(Math.random() * paragrafos.length - 1) + 1;
+        paragrafos.eq(target).before(paragrafos.eq(target2));
+      }
+    }
+  </script>
+
+
+  <div class="footer">
+    <p><b>Bruno Chiot de Oliveira 126910@upf.br - Cristian Guilherme Petry 133057@upf.br - Kétlin Petry Beppler
+        126923@upf.br</b></p>
+  </div>
+
+</body>
+
+</html>

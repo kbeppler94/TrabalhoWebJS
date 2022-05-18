@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Webstorage</title>
+
+</head>
+<style>
+    body {
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 18px;
+    }
+</style>
+
+<body>
+    <p id="result"></p>
+    <script>
+        function getUrl() {
+            var i;
+            var vars = new Array();
+            var parteString;
+            var todaString = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+
+            for (var i = 0; i < todaString.length; i++) {
+                parteString = todaString[i].split('=');
+                parteString[1] = decodeURIComponent(parteString[1]);
+                vars.push(parteString[0]);
+                vars[parteString[0]] = parteString[1];
+            }
+
+            return vars;
+        }
+
+
+        /* Chama a função e mostra o resultado */
+        var result = getUrl();
+        var i, nomeVar;
+
+        /* Verifica se já existem dados armazenados no web storage do navegador */
+        var old = localStorage.getItem("resultadoJSON");
+        if (old) {  /* Removendo [ ] para inserir novo registro JSON */
+            old = old.substring(1);
+            old = old.substring(0, old.length - 1);
+        }
+
+        /* Preparando e gravando em "localStorage" uma string JSON */
+        if (result.length > 0) {
+            var myObjJSON = "{";
+
+            for (i = 0; i < result.length; i++) {
+                nomeVar = result[i];
+                myObjJSON += "\"" + nomeVar + "\"" + ":\"" + (result[nomeVar] != "" ? result[nomeVar] : "null") + "\"";
+                if (i != result.length - 1)  /* Se não é o último item, separa por vírgula */
+                    myObjJSON += ",";
+                else  /* Caso contrário, fecha o JSON */
+                    myObjJSON += "}";
+            }
+            /* Concatena os dados e insere novamente os delimitadores de início e fim do array JSON */
+            var data = old ? old + "," + myObjJSON : myObjJSON;
+            data = "[" + data + "]";
+
+            /* Armazena os dados no navegador do cliente sem expirar data, definindo um apelido */
+            localStorage.setItem("resultadoJSON", data);
+        }
+
+        /* Lendo e formatando dados JSON armazenados no "localStorage", chamando pelo apelido */
+        text = localStorage.getItem("resultadoJSON");
+        /* Faz o parser para tratar a string como objeto */
+        obj = JSON.parse(text);
+
+        /* Navega pelo objeto e monta a string de saída, registro por registro */
+        var txt = "";
+
+        for (objDados of obj) {
+
+            /* Verifica quantos objetos tem em cada registro */
+            var count = 0;
+            for (campo in objDados) {
+                if (Object.prototype.hasOwnProperty.call(objDados, campo)) {
+                    count++;
+                }
+            }
+
+            /* Prepara a string de saída, formatada linha a linha */
+            var tamanho = 0;
+            for (campo in objDados) {
+                txt += campo + ": " + objDados[campo];
+                if (tamanho != count - 1)
+                    txt += ", ";
+                else
+                    txt += ".";
+                tamanho++;
+            }
+            txt += "<br>";
+        }
+
+        /* Exibe resultado em um parágrafo da página HTML */
+        document.getElementById("result").innerHTML = txt;
+    </script>
+</body>
+
+</html>
